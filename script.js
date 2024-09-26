@@ -104,14 +104,17 @@ const balance = document.getElementById(
   }
   
   
-  //6 
-  
-  //Remove Transaction by ID
-  function removeTransaction(id){
+// Remove Transaction by ID with Confirmation
+function removeTransaction(id) {
+  const confirmDelete = confirm("Are you sure you want to delete this transaction?");
+  if (confirmDelete) {
+    // Proceed if user confirms deletion
     transactions = transactions.filter(transaction => transaction.id !== id);
     updateLocalStorage();
     Init();
   }
+}
+
   //last
   //update Local Storage Transaction
   function updateLocalStorage(){
